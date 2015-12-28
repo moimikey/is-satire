@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "elements": [
+      "title",
+      "[role=main]"
+    ],
+    "pages": [
+      "/about-us"
+      "/aboutus",
+      "/about",
+      "/legal",
+      "/disclaimer",
+      "/terms",
+      "/toc",
+      "/terms-and-conditions",
+      "/terms-conditions",
+      "/privacy",
+      "/privacy-policy",
+      "/nosotros",
+      "/writers",
+      "/contact",
+      "/faq",
+      "/frequently-asked-questions"
+    ],
+    "keywords": [
+      "satire",
+      "satirical",
+      "spoof",
+      "fake",
+      "humor"
+      "humour",
+      "exaggeration",
+      "exaggerate",
+      "mock",
+      "hoax",
+      "fiction",
+      "parody",
+      "satírico"
+    ]
+  }
+}
