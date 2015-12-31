@@ -6,9 +6,11 @@
   "scripts": {
     "test-ci": "babel-node test/index.js",
     "test": "babel-node test/index.js | tap-notify | faucet",
-    "build": "babel -d lib/ src/",
+    "transform": "babel -d lib/ src/",
+    "build": "mkdirp build && browserify --entry index.js --standalone isSatire --outfile build/is-satire.js",
     "lint": "eslint --cache src/",
-    "prepublish": "npm run lint && npm run build && npm run test",
+    "cli": "babel-node cli.js",
+    "prepublish": "npm run lint && npm run test && npm run transform && npm run build",
     "prepush": "prepush",
     "precommit": "precommit"
   },
@@ -17,12 +19,23 @@
     "url": "https://github.com/moimikey/is-satire.git"
   },
   "keywords": [
-    "satire",
+    "herald",
     "news",
     "publishing",
-    "fake",
+    "the onion",
+    "satire",
     "satirical",
-    "the onion"
+    "spoof",
+    "fake",
+    "humor",
+    "humour",
+    "exaggeration",
+    "exaggerate",
+    "mock",
+    "hoax",
+    "fiction",
+    "parody",
+    "satírico"
   ],
   "author": "Michael Scott Hertzberg <mshertzberg@gmail.com> (http://hertzber.gs/)",
   "license": "MIT",
@@ -30,22 +43,29 @@
     "url": "https://github.com/moimikey/is-satire/issues"
   },
   "homepage": "https://github.com/moimikey/is-satire",
+  "preferGlobal": false,
+  "bin": {
+    "is-satire": "cli.js"
+  },
   "devDependencies": {
     "babel-cli": "6.3.17",
     "babel-core": "6.3.26",
     "babel-eslint": "5.0.0-beta6",
     "babel-plugin-transform-object-assign": "6.3.13",
+    "babel-polyfill": "6.3.14",
     "babel-preset-es2015": "6.3.13",
     "babel-preset-stage-0": "6.3.13",
     "babel-runtime": "6.3.19",
     "eslint": "1.10.3",
     "faucet": "0.0.1",
+    "mkdirp": "0.5.1",
     "native-or-bluebird": "1.2.0",
     "tap-notify": "0.0.3",
     "tap-spec": "4.1.1",
     "tape": "4.4.0"
   },
   "dependencies": {
-
+    "hasdom": "0.0.4",
+    "is-url": "1.2.1"
   }
 }

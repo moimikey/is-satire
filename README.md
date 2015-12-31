@@ -1,6 +1,8 @@
 # is-satire
 A semi-useful tool for the browser or command line to determine if a website is satirical/fake or actually legitimate.
 
+Works in `node.js` (see `lib/`), the `browser` (see `build/`) and as a `cli` utility (`is-satire`), all-in-one!
+
 **NOTE** This is still in Alpha stages and is not ready for use yet. I'm expecting the first release in January/February 2016.
 
 # Features
@@ -20,6 +22,8 @@ Fake and/or hoaxed content is satire that is pushed as actual news, possibly aim
 Clickbait is content originating from factual content, interlaced with fiction, to encourage fear and conspiracy; sources such as BeforeItsNews.com.
 
 # Fun Facts
+One of the earliest examples of what we might call satire, [The Satire of the Trades](https://en.wikipedia.org/wiki/The_Satire_of_the_Trades), is in Egyptian writing from the beginning of the 2nd millennium BC. The text's apparent readers are students, tired of studying. It argues that their lot as scribes is useful, and their lot far superior to that of the ordinary man. Scholars such as Helck think that the context was meant to be serious. [cite](https://en.wikipedia.org/wiki/Satire#Development)
+
 Of the first known accounts of journalistic satirism, in 1835, Richard A. Locke successfully increased sales of The Sun newspaper by publishing a series of six articles, now known as the Great Moon Hoax, under the name of contemporary astronomer Sir John Herschel. [cite](https://en.wikipedia.org/wiki/Great_Moon_Hoax)
 
 The word "courant" (*hint* The Daily Currant *giggle*) is an obsolete term for "newspaper." The word was also used in British English dialect to refer to enacting in gossiping. [cite](https://en.wiktionary.org/wiki/courant)
