@@ -1,5 +1,4 @@
 /* eslint no-console:0 */
-import 'babel-runtime'
 import * as Url from 'url'
 import * as Cheerio from 'cheerio'
 import fetch from 'node-fetch'
@@ -72,7 +71,8 @@ class IsSatire {
     return await arr.reduce(async function(paths, path, data, httpStatus, isValidPath) {
       paths = await paths
       data = await fetch(Url.resolve(url, path))
-      isValidPath = 200 === data.status
+      /* avoid non200's & shortlinks */
+      isValidPath = 200 === data.status && !data.headers.get('link')
       if (!isValidPath) return paths
       paths.push({
         keywordsFound: await this.findKeywords(await data.text(), this.fingerprint.keywords),
@@ -107,10 +107,11 @@ class IsSatire {
    * @return {Array}      [ 'satire', 'fictional', ... ]
    */
   async calculateLikelihood(data) {
-    return await data.reduce(async function(keywords, key) {
+    const keywordsFound = await data.reduce(async function(keywords, key) {
       keywords = await keywords
       return keywords.concat(key.keywordsFound)
     }, [])
+    return await [...new Set(keywordsFound)]
   }
 
   /**
