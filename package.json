@@ -43,7 +43,7 @@
     "url": "https://github.com/moimikey/is-satire/issues"
   },
   "homepage": "https://github.com/moimikey/is-satire",
-  "preferGlobal": false,
+  "preferGlobal": true,
   "bin": {
     "is-satire": "cli.js"
   },
