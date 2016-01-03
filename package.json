@@ -45,7 +45,7 @@
   "homepage": "https://github.com/moimikey/is-satire",
   "preferGlobal": true,
   "bin": {
-    "is-satire": "./node_modules/.bin/babel-node cli.js"
+    "is-satire": "babel-node cli.js"
   },
   "devDependencies": {
     "babel-core": "6.3.26",

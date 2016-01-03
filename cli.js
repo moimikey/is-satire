@@ -1,5 +1,5 @@
 /* eslint no-console:0 */
-import 'babel-polyfill'
+import 'babel-runtime'
 import * as Url from 'url'
 import * as Cheerio from 'cheerio'
 import fetch from 'node-fetch'
