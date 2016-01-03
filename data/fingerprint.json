@@ -1,41 +1,42 @@
 {
   "checks": {
     "elements": [
-      "title",
-      "[role=main]"
+      "body"
     ],
-    "pages": [
-      "/about-us"
-      "/aboutus",
+    "paths": [
       "/about",
-      "/legal",
+      "/about-us",
+      "/aboutus",
+      "/contact",
       "/disclaimer",
-      "/terms",
-      "/toc",
-      "/terms-and-conditions",
-      "/terms-conditions",
+      "/faq",
+      "/frequently-asked-questions",
+      "/legal",
+      "/nosotros",
       "/privacy",
       "/privacy-policy",
-      "/nosotros",
-      "/writers",
-      "/contact",
-      "/faq",
-      "/frequently-asked-questions"
+      "/terms",
+      "/terms-and-conditions",
+      "/terms-conditions",
+      "/toc",
+      "/writers"
     ],
     "keywords": [
+      "exaggerate",
+      "exaggeration",
+      "fake",
+      "fiction",
+      "hoax",
+      "humor",
+      "humour",
+      "mock",
+      "parodied",
+      "parody",
+      "publication",
       "satire",
       "satirical",
-      "spoof",
-      "fake",
-      "humor"
-      "humour",
-      "exaggeration",
-      "exaggerate",
-      "mock",
-      "hoax",
-      "fiction",
-      "parody",
-      "satírico"
+      "satírico",
+      "spoof"
     ]
   }
 }
