@@ -3,7 +3,7 @@ A semi-useful tool for the browser or command line to determine if a website is 
 
 Works in `node.js` (see `lib/`), the `browser` (see `build/`) and as a `cli` utility (`is-satire`), all-in-one!
 
-**NOTE** This is still in Alpha stages and is not ready for use yet. I'm expecting the first release in January/February 2016.
+**NOTE** This is kind of beta right now. Try out the CLI and let me know your thoughts!
 
 # Features
 - pre-determined list of satirical content sources
@@ -30,17 +30,14 @@ The word "courant" (*hint* The Daily Currant *giggle*) is an obsolete term for "
 
 Like "courant", "herald" (*hint* Boston Herald) historically refers to an officer with the status of ambassador acting as official messenger between leaders especially in war; one that conveys news. [cite](http://www.merriam-webster.com/dictionary/herald)
 
-# Examples
+# CLI
 ```js
-./is-satire http://somesite.com
-_ is not a known satire site, but displays characteristics of a satire site!
+$ npm run cli -- http://derfmagazine.com
 
-If you'd like to submit this to `is-satire` please type `y` and we'll transmit
-this fingerprint behind the scenes.
+> is-satire@1.0.0 cli ~/Git/is-satire
+> babel-node cli.js "http://www.wonkette.com"
 
-./is-satire http://othersite.com
-_ is a known satire site!
-
-./is-satire http://yetanothersite.com
-_ is **not** a known satire site.
+checking www.wonkette.com...
+Found Keywords: humor, parody, publication, satire, parody, publication, satire, parody, publication, satire
+there's a strong likelihood that this is a satire site.
 ```

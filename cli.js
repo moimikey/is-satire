@@ -128,10 +128,10 @@ class IsSatire {
    */
   async scanUrl(uri) {
     console.log(`checking ${Url.parse(uri).hostname}...`)
-    // if (this.isBlacklisted(Url.parse(uri).hostname))
-      // return console.log(`${uri} is a known satire site!`)
+    if (this.isBlacklisted(Url.parse(uri).hostname))
+      return console.log(`${uri} is a known satire site!`)
     const result = await this.beginScan()
-    console.log(result)
+    console.log(`Found Keywords: ${result.join(', ')}`)
     if (result.length === 0) console.log(`this does not seem to be a satire site. but i could be wrong.`)
     if (result.length === 1) console.log(`there's a small likelihood that this is a satire site.`)
     if (result.length > 1) console.log(`there's a strong likelihood that this is a satire site.`)
