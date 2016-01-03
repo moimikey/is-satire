@@ -1,4 +1,3 @@
-#!/usr/bin/env ./node_modules/.bin/babel-node
 /* eslint no-console:0 */
 import 'babel-polyfill'
 import * as Url from 'url'
