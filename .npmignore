@@ -2,7 +2,8 @@
 .editorconfig
 .eslintrc
 .eslintcache
-test/
 bin/
+build/
 src/
 ssl/
+test/
