@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /* eslint no-console:0 */
 import * as Url from 'url'
 import * as Cheerio from 'cheerio'
