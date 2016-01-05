@@ -50,10 +50,7 @@
   "devDependencies": {
     "babel-core": "6.3.26",
     "babel-eslint": "5.0.0-beta6",
-    "babel-plugin-external-helpers-2": "6.3.13",
-    "babel-plugin-transform-object-assign": "6.3.13",
     "babel-plugin-transform-runtime": "6.3.13",
-    "babel-polyfill": "6.3.14",
     "babel-preset-es2015": "6.3.13",
     "babel-preset-stage-0": "6.3.13",
     "babel-runtime": "6.3.19",
@@ -70,7 +67,8 @@
     "hasdom": "0.0.4",
     "native-or-bluebird": "1.2.0",
     "node-fetch": "1.3.3",
-    "url": "0.11.0"
+    "url": "0.11.0",
+    "browserify": "12.0.1"
   },
   "optionalDependencies": {
     "babel-cli": "6.3.17"
