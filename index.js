@@ -1,1 +1,1 @@
-module.exports = require('./lib').isSatire
+module.exports.isSatire = require('./lib').default

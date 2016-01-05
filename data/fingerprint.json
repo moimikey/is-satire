@@ -1,9 +1,15 @@
 {
   "checks": {
     "elements": [
-      "body"
+      "#footer",
+      ".footer",
+      "#main",
+      "#container",
+      "#content",
+      "role[main]"
     ],
     "paths": [
+      "/",
       "/about",
       "/about-us",
       "/aboutus",

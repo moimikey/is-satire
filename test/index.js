@@ -1,17 +1,33 @@
+// import * as shelljs from 'shelljs'
 import * as tape from 'tape'
-tape.test('test node require', t => {
+
+// import isSatireImport from '..'
+
+tape.test('CLI', t => {
+  // const isSatire = require('../src/cli')
+  // const isSatire = shelljs()
+  t.end()
+})
+
+tape.test('Node (require)', t => {
   // t.plan(2)
-  const isSatire = require('../')
-  console.log(isSatire)
+  // const isSatire = require('../lib')
+  // console.log(isSatire)
   // const checkUrl = isSatire({ url: 'http://google.com' })
   // t.equal(typeof isSatire, 'object')
   // t.equal(checkUrl.url, 'http://google.com')
   t.end()
 })
 
-tape.test('test browserify build', t => {
-  const isSatire = require('../')
-  t.equal(1, 1)
+tape.test('Node (import)', t => {
+  // t.equal(typeof isSatireImport, 'function')
+  t.end()
+})
+
+tape.test('Browser (browserify)', t => {
+  // const isSatire = require('../lib')
+  // console.log('output', isSatire)
+  // t.equal(typeof isSatire, 'function')
   t.end()
 })
 
