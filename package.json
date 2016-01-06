@@ -71,6 +71,6 @@
     "babel-runtime": "6.3.x"
   },
   "optionalDependencies": {
-    "babel-cli": "6.3.x"
+    "babel-cli": "6.4.0"
   }
 }
