@@ -1,6 +1,6 @@
 {
   "name": "is-satire",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Strategically determine if a website is satire or not",
   "main": "lib/index.js",
   "scripts": {
