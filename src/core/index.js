@@ -2,7 +2,5 @@
 // export {
 //   cache
 // }
-const anal = true
 export {
-  anal
 }
