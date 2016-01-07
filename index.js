@@ -1,1 +1,1 @@
-module.exports.isSatire = require('./lib').default
+module.exports = require('./src')
