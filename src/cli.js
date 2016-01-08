@@ -4,6 +4,7 @@ import * as Cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import { Promise } from 'bluebird'
 import { readFile } from 'fs'
+import { join as pathJoin } from 'path'
 
 const readFileAsync = Promise.promisify(readFile)
 
@@ -14,7 +15,7 @@ class IsSatire {
    */
   constructor(uri = process.argv.slice(2)) {
     const target = typeof uri !== 'string' ? uri.slice(0, 1).toString() : uri
-    return this.init(target)
+    return this.init(target).catch(err => console.log(err))
   }
 
   /**
@@ -30,10 +31,10 @@ class IsSatire {
   async configurationFor(uri) {
     const config = new Map()
     config.set('blacklist', new Set(
-      JSON.parse(await readFileAsync('data/known.json', 'utf-8')).sites
+      JSON.parse(await readFileAsync(pathJoin(__dirname, '..', 'data', 'known.json'), 'utf-8')).sites
     ))
     config.set('fingerprint', Object.assign(Object.create(null),
-      JSON.parse(await readFileAsync('data/fingerprint.json', 'utf-8')).checks
+      JSON.parse(await readFileAsync(pathJoin(__dirname, '..', 'data', 'fingerprint.json'), 'utf-8')).checks
     ))
     config.set('uri', uri)
     return config
