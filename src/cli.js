@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /* eslint no-console:0 */
 import * as Url from 'url'
 import * as Cheerio from 'cheerio'
@@ -13,13 +12,13 @@ class IsSatire {
    * @param  {Array}  uri [ 'http://...', 'extraneous argument', ... ]
    * @return {String}     "http://..."
    */
-  constructor(uri) {
+  constructor(uri = process.argv.slice(2)) {
     const target = typeof uri !== 'string' ? uri.slice(0, 1).toString() : uri
     return this.init(target)
   }
 
   /**
-   * @param  {Array} uri [ 'http://...', 'extraneous argument', ... ]
+   * @param  {String} uri 'http://...'
    * @return {*}
    */
   async init(uri) {
