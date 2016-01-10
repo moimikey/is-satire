@@ -1,12 +1,7 @@
 {
   "checks": {
     "elements": [
-      "#footer",
-      ".footer",
-      "#main",
-      "#container",
-      "#content",
-      "role[main]"
+      "body"
     ],
     "paths": [
       "/",
