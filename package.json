@@ -63,7 +63,7 @@
     "tape": "4.4.0"
   },
   "dependencies": {
-    "babel-runtime": "6.5.0",
+    "babel-runtime": "6.6.0",
     "bluebird": "3.3.2",
     "cheerio": "0.20.0",
     "hasdom": "0.0.4",
