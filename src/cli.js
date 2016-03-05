@@ -133,9 +133,10 @@ class IsSatire {
       return console.log(`${uri} is a known satire site!`)
     const result = await this.beginScan()
     console.log(`Found Keywords: ${result.join(', ')}`)
-    if (result.length === 0) console.log(`this does not seem to be a satire site. but i could be wrong.`)
-    if (result.length === 1) console.log(`there's a small likelihood that this is a satire site.`)
-    if (result.length > 1) console.log(`there's a strong likelihood that this is a satire site.`)
+    if (result.length === 0) console.log('this does not seem to be a satire site. but i could be wrong.')
+    if (result.length === 1) console.log('there\'s a small likelihood that this is a satire site.')
+    if (result.length > 1) console.log('there\'s a strong likelihood that this is a satire site.')
+    return await false
   }
 }
 Reflect.construct(IsSatire, [process.argv.slice(2)])
