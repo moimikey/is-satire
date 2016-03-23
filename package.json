@@ -67,7 +67,7 @@
     "bluebird": "3.3.4",
     "cheerio": "0.20.0",
     "hasdom": "0.0.4",
-    "node-fetch": "1.4.0",
+    "node-fetch": "1.4.1",
     "url": "0.11.0"
   }
 }
