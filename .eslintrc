@@ -96,6 +96,9 @@
     "require-yield": 1,
     "no-plusplus": 0
   },
+  "ecmaFeatures": {
+    "modules": true,
+  },
   "env": {
     "es6": true,
     "node": true,
