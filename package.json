@@ -46,7 +46,7 @@
     "is-satire": "./cli.js"
   },
   "devDependencies": {
-    "babel-cli": "6.6.5",
+    "babel-cli": "6.7.5",
     "babel-core": "6.7.4",
     "babel-eslint": "6.0.2",
     "babel-plugin-external-helpers": "6.5.0",
