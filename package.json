@@ -64,7 +64,7 @@
   },
   "dependencies": {
     "babel-runtime": "6.9.2",
-    "bluebird": "3.4.0",
+    "bluebird": "3.4.1",
     "cheerio": "0.21.0",
     "hasdom": "0.0.4",
     "node-fetch": "1.5.3",
