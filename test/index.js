@@ -3,13 +3,13 @@ import * as tape from 'tape'
 
 // import isSatireImport from '..'
 
-tape.test('CLI', t => {
+tape.skip('CLI', t => {
   // const isSatire = require('../src/cli')
   // const isSatire = shelljs()
   t.end()
 })
 
-tape.test('Node (require)', t => {
+tape.skip('Node (require)', t => {
   // t.plan(2)
   // const isSatire = require('../lib')
   // console.log(isSatire)
@@ -19,12 +19,12 @@ tape.test('Node (require)', t => {
   t.end()
 })
 
-tape.test('Node (import)', t => {
+tape.skip('Node (import)', t => {
   // t.equal(typeof isSatireImport, 'function')
   t.end()
 })
 
-tape.test('Browser (browserify)', t => {
+tape.skip('Browser (browserify)', t => {
   // const isSatire = require('../lib')
   // console.log('output', isSatire)
   // t.equal(typeof isSatire, 'function')
