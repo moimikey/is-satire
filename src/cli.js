@@ -69,16 +69,19 @@ class IsSatire {
    * @return {Array}        [ '/about', '/terms', ... ]
    */
   async analyzePaths(url, arr) {
-    return await arr.reduce(async function(paths, path, data, httpStatus, isValidPath) {
+    return await arr.reduce(async function(paths, path, data, httpStatus, isValidPath, result) {
       paths = await paths
       data = await fetch(Url.resolve(url, path))
+      console.log('*** trying', url, path)
       /* avoid non200's & shortlinks */
       isValidPath = 200 === data.status && !data.headers.get('link')
       if (!isValidPath) return paths
-      paths.push({
+      result = {
         keywordsFound: await this.findKeywords(await data.text(), this.fingerprint.keywords),
         path
-      })
+      }
+      console.log('*** path', result)
+      paths.push(result)
       return paths
     }.bind(this), [])
   }
@@ -112,7 +115,9 @@ class IsSatire {
       keywords = await keywords
       return keywords.concat(key.keywordsFound)
     }, [])
-    return await [...new Set(keywordsFound)]
+    const uniqueKeywords = [...new Set(keywordsFound)]
+    console.log('*** unique keywords', uniqueKeywords)
+    return await uniqueKeywords
   }
 
   /**
@@ -120,6 +125,7 @@ class IsSatire {
    */
   async beginScan() {
     const analysis = await this.analyzePaths(this.target, this.fingerprint.paths)
+    console.log('*** analysis', analysis)
     return await this.calculateLikelihood(analysis)
   }
 

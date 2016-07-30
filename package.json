@@ -4,6 +4,7 @@
   "description": "Strategically determine if a website is satire or not",
   "main": "lib/index.js",
   "scripts": {
+    "blacklist": "babel-node bin/blacklist",
     "test:dev": "babel-node test/index.js | tap-botify | faucet",
     "test": "babel-node test/index.js",
     "build": "mkdirp build && browserify --entry ./src/index.js --outfile build/is-satire.js -t [ babelify --presets [ es2015 stage-0 ] ]",
@@ -55,6 +56,8 @@
     "browserify": "13.1.0",
     "eslint": "3.2.0",
     "faucet": "0.0.1",
+    "inquirer": "1.1.2",
+    "jsonfile": "2.3.1",
     "mkdirp": "0.5.1",
     "tap-notify": "1.0.0",
     "tap-spec": "4.1.1",
