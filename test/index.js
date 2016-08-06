@@ -1,15 +1,14 @@
 // import * as shelljs from 'shelljs'
-import * as tape from 'tape'
+import tap from 'tap'
+import isSatireImport from '..'
 
-// import isSatireImport from '..'
-
-tape.skip('CLI', t => {
+tap.test('CLI', { skip: true }, t => {
   // const isSatire = require('../src/cli')
-  // const isSatire = shelljs()
+  // t.type(isSatire, 'object')
   t.end()
 })
 
-tape.skip('Node (require)', t => {
+tap.test('Node (require)', { skip: true }, t => {
   // t.plan(2)
   // const isSatire = require('../lib')
   // console.log(isSatire)
@@ -19,12 +18,12 @@ tape.skip('Node (require)', t => {
   t.end()
 })
 
-tape.skip('Node (import)', t => {
+tap.test('Node (import)', { skip: true }, t => {
   // t.equal(typeof isSatireImport, 'function')
   t.end()
 })
 
-tape.skip('Browser (browserify)', t => {
+tap.test('Browser (browserify)', { skip: true }, t => {
   // const isSatire = require('../lib')
   // console.log('output', isSatire)
   // t.equal(typeof isSatire, 'function')
