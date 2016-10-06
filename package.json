@@ -60,7 +60,7 @@
     "inquirer": "1.2.1",
     "jsonfile": "2.4.0",
     "mkdirp": "0.5.1",
-    "nodemon": "1.10.2",
+    "nodemon": "1.11.0",
     "tap": "7.1.2",
     "tap-notify": "1.0.0"
   },
