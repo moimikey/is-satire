@@ -1,6 +1,6 @@
 /* eslint no-console:0 */
-import * as Url from 'url'
-import * as Cheerio from 'cheerio'
+import url$ from 'url'
+import cheerio$ from 'cheerio'
 import fetch from 'node-fetch'
 import { Promise } from 'bluebird'
 import { readFile } from 'fs'
@@ -9,23 +9,25 @@ import { join as pathJoin } from 'path'
 const readFileAsync = Promise.promisify(readFile)
 
 class IsSatire {
-  /**
-   * @param  {Array}  uri [ 'http://...', 'extraneous argument', ... ]
-   * @return {String}     "http://..."
-   */
-  constructor(uri = process.argv.slice(2)) {
-    const target = typeof uri !== 'string' ? uri.slice(0, 1).toString() : uri
-    return this.init(target).catch(err => console.log(err))
+  constructor() {
+    const argv = require('optimist')
+      .usage(
+        `usage: $0 [-f force] <-t target>\nexample: $0 -f -t theonion.com\n`
+      )
+      .demand(['t'])
+      .argv
+    const target = String(argv.t)
+    const withForce = Boolean(argv.f)
+    return this.init({
+      target: this.resolveTarget(target),
+      withForce
+    })
+    .catch(err => console.error(err))
   }
 
-  /**
-   * @param  {String} uri 'http://...'
-   * @return {*}
-   */
-  async init(uri) {
-    const { protocol } = Url.parse(uri)
-    this.config = await this.configurationFor(uri)
-    return protocol !== null ? this.scanUrl(uri) : this.displayHelp()
+  async init({ target, withForce }) {
+    this.config = await this.configurationFor(target)
+    return this.scanUrl({ target, withForce })
   }
 
   async configurationFor(uri) {
@@ -38,11 +40,6 @@ class IsSatire {
     ))
     config.set('uri', uri)
     return config
-  }
-
-  displayHelp() {
-    console.log('usage: is-satire http(s)://...\n')
-    return process.exit(0)
   }
 
   get target() {
@@ -61,6 +58,10 @@ class IsSatire {
     return this.blacklist.has(hostname)
   }
 
+  resolveTarget(target, { withProtocol } = { withProtocol: '' }) {
+    return url$.parse(target) && url$.parse(target).hostname || `${withProtocol && 'http://'}${target}`
+  }
+
   /**
    * @param  {String} url   "http://..."
    * @param  {Array}  arr   [ '/about', '/about-us', ... ]
@@ -69,7 +70,12 @@ class IsSatire {
   async analyzePaths(url, arr) {
     return await arr.reduce(async function(paths, path, data, httpStatus, isValidPath, result) {
       paths = await paths
-      data = await fetch(Url.resolve(url, path))
+      data = await fetch(
+        url$.resolve(
+          this.resolveTarget(url, { withProtocol: true }),
+          path
+        )
+      )
       console.log('*** trying', url, path)
       /* avoid non200's & shortlinks */
       isValidPath = 200 === data.status && !data.headers.get('link')
@@ -90,7 +96,7 @@ class IsSatire {
    * @return {Array}       [ 'satire']
    */
   async findKeywords(data, arr) {
-    const $ = await Cheerio.load(data)
+    const $ = await cheerio$.load(data)
     const pageContent = await this.fingerprint.elements.map(el => $(el).text())
     const keywordsRegex = new RegExp(this.fingerprint.keywords.join('|'))
     const maybeHasKeyword = await pageContent.some(text => keywordsRegex.test(text))
@@ -121,21 +127,17 @@ class IsSatire {
   /**
    * @return {String} "there's a ... likelihood that this is..."
    */
-  async beginScan() {
-    const analysis = await this.analyzePaths(this.target, this.fingerprint.paths)
+  async beginScan(target) {
+    const analysis = await this.analyzePaths(target, this.fingerprint.paths)
     console.log('*** analysis', analysis)
     return await this.calculateLikelihood(analysis)
   }
 
-  /**
-   * @param  {String} url "http://..."
-   * @return {*}
-   */
-  async scanUrl(uri) {
-    console.log(`checking ${Url.parse(uri).hostname}...`)
-    if (this.isBlacklisted(Url.parse(uri).hostname))
-      return console.log(`${uri} is a known satire site!`)
-    const result = await this.beginScan()
+  async scanUrl({ target, withForce }) {
+    console.log(`checking ${target}...`)
+    if (this.isBlacklisted(target) && !withForce)
+      return console.log(`${target} is a known satire site!`)
+    const result = await this.beginScan(target)
     console.log(`Found Keywords: ${result.join(', ')}`)
     if (result.length === 0) console.log('this does not seem to be a satire site. but i could be wrong.')
     if (result.length === 1) console.log('there\'s a small likelihood that this is a satire site.')
@@ -143,4 +145,5 @@ class IsSatire {
     return await false
   }
 }
-Reflect.construct(IsSatire, [process.argv.slice(2)])
+
+Reflect.construct(IsSatire, [])
