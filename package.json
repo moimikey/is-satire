@@ -70,6 +70,7 @@
     "cheerio": "0.22.0",
     "hasdom": "0.0.4",
     "node-fetch": "1.6.3",
+    "optimist": "^0.6.1",
     "url": "0.11.0"
   }
 }
