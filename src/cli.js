@@ -11,9 +11,7 @@ const readFileAsync = Promise.promisify(readFile)
 class IsSatire {
   constructor() {
     const argv = require('optimist')
-      .usage(
-        `usage: $0 [-f force] <-t target>\nexample: $0 -f -t theonion.com\n`
-      )
+      .usage('usage: $0 [-f force] <-t target>\nexample: $0 -f -t theonion.com\n')
       .demand(['t'])
       .argv
     const target = String(argv.t)

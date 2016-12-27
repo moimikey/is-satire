@@ -3,32 +3,58 @@ A semi-useful tool for the browser or command line to determine if a website is 
 
 Works in `node.js` (see `lib/`), the `browser` (see `build/`) and as a `cli` utility (`is-satire`), all-in-one!
 
-**NOTE** This is kind of beta right now. Try out the CLI and let me know your thoughts! `npm -g install is-satire`. `node` and `browser` support will be completed end of Jan 2016, early Feb 2016 probably :)...
+# Algorithm
+* Check URL against list of known satire sites,
+* If not found in list:
+    * Perform fingerprint match:
+        1. Check target against predefined list of interested URI paths,
+        2. for each found (200 OK) path:
+            * Check path against predefined list of interesting keywords,
+            * For each found keyword:
+                1. Record `n=n+1`, representing likelihood that target is satire 
 
-# How's it work?
-This doesn't have any scientific merit or fancy algorithm. It works two ways:
-1. Check a URL against our list of known satire sites. If not found in list;
-2. Perform a fingerprint match:
-  1. Perform a brute force scan of pre-determined list of possible paths;
-  2. Perform a regular expression match on paths that exist; (200 OK)
-  3. For each page and found keywords, determine likelihood that the target is of a satire nature.
+## Accuracy
+
+This utility first matches a target URI against a predefined list of known satire sites, before attempting to match against a predefined list of common URI paths, which may disclose evidence of satirical content. Presently, there is no scientific merit behind this algorithm, therefore accuracy cannot be determined. 
 
 # Contribute!
 
 It's not an exact science, but seems to get pretty accurate results. The blacklist is pretty comprehensive, so if you get to the scan part, definitely submit a pull request with your results!
 
 # CLI
+## Pre 1.0
 ```js
-$ is-satire http://www.wonkette.com
-_or_
-$ npm run cli -- http://www.wonkette.com
-
-> is-satire@1.0.0 cli ~/Git/is-satire
-> babel-node cli.js "http://www.wonkette.com"
-
+is-satire http://www.wonkette.com
+```
+```
 checking www.wonkette.com...
 Found Keywords: humor, parody, publication, satire, parody, publication, satire, parody, publication, satire
 there's a strong likelihood that this is a satire site.
+```
+
+## 1.0
+
+> `is-satire` 1.0 provides more explicit output, allowing the user to encourage curiosity, in determining whether or not the target is satire.
+
+```
+is-satire [-f force] <-t target>
+is-satire -t christwire.org
+is-satire -f -t christwire.org
+```
+
+```
+checking christwire.org...
+*** trying christwire.org /
+*** path { keywordsFound: [], path: '/' }
+*** trying christwire.org /about
+*** trying christwire.org /about-us
+*** trying christwire.org /aboutus
+*** trying christwire.org /contact
+*** trying christwire.org /disclaimer
+*** trying christwire.org /faq
+*** trying christwire.org /frequently-asked-questions
+*** path { keywordsFound: [ 'invented', 'publication', 'satirical', 'satirize' ],
+  path: '/frequently-asked-questions' }
 ```
 
 # Satire
