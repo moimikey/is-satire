@@ -22,7 +22,7 @@ This utility first matches a target URI against a predefined list of known satir
 It's not an exact science, but seems to get pretty accurate results. The blacklist is pretty comprehensive, so if you get to the scan part, definitely submit a pull request with your results!
 
 # CLI
-## Pre 1.0
+## Pre 2.0
 ```js
 is-satire http://www.wonkette.com
 ```
@@ -32,9 +32,9 @@ Found Keywords: humor, parody, publication, satire, parody, publication, satire,
 there's a strong likelihood that this is a satire site.
 ```
 
-## 1.0
+## 2.0
 
-> `is-satire` 1.0 provides more explicit output, allowing the user to encourage curiosity, in determining whether or not the target is satire.
+> `is-satire` 2.0 provides more explicit output, allowing the user to encourage curiosity, in determining whether or not the target is satire.
 
 ```
 is-satire [-f force] <-t target>
