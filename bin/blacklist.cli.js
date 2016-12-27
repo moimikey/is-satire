@@ -29,5 +29,6 @@ require('inquirer').prompt([{
   }, {
     replacer: true
   })
-  return console.log(`added ${uri} to blacklist`)
+  console.log(`added ${uri} to blacklist`)
+  
 })
