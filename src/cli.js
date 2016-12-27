@@ -41,9 +41,7 @@ class IsSatire {
   }
 
   displayHelp() {
-    console.log(
-      `usage: is-satire http(s)://...\n`
-    )
+    console.log('usage: is-satire http(s)://...\n')
     return process.exit(0)
   }
 
