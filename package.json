@@ -57,7 +57,7 @@
     "browserify": "13.3.0",
     "eslint": "3.14.0",
     "faucet": "0.0.1",
-    "inquirer": "2.0.0",
+    "inquirer": "3.0.0",
     "jsonfile": "2.4.0",
     "mkdirp": "0.5.1",
     "nodemon": "1.11.0",
