@@ -55,7 +55,7 @@
     "babel-tap": "5.0.0",
     "babelify": "7.3.0",
     "browserify": "14.1.0",
-    "eslint": "3.15.0",
+    "eslint": "3.16.0",
     "faucet": "0.0.1",
     "inquirer": "3.0.1",
     "jsonfile": "2.4.0",
