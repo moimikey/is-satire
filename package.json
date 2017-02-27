@@ -61,7 +61,7 @@
     "jsonfile": "2.4.0",
     "mkdirp": "0.5.1",
     "nodemon": "1.11.0",
-    "tap": "10.2.1",
+    "tap": "10.2.2",
     "tap-notify": "1.0.0"
   },
   "dependencies": {
