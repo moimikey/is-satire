@@ -54,7 +54,7 @@
     "babel-preset-stage-0": "6.22.0",
     "babel-tap": "5.0.0",
     "babelify": "7.3.0",
-    "browserify": "14.1.0",
+    "browserify": "14.2.0",
     "eslint": "3.19.0",
     "faucet": "0.0.1",
     "inquirer": "3.0.6",
