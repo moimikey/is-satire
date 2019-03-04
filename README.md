@@ -1,4 +1,7 @@
 # is-satire
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/moimikey/is-satire.svg)](https://greenkeeper.io/)
+
 A semi-useful tool for the browser or command line to determine if a website is satirical/fake or actually legitimate.
 
 Works in `node.js` (see `lib/`), the `browser` (see `build/`) and as a `cli` utility (`is-satire`), all-in-one!
